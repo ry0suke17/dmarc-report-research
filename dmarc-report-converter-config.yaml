@@ -1,0 +1,37 @@
+input:
+  delete: no
+  dir: "./report_attached_file_unzip"
+  #imap:
+  #  server: ""
+  #  username: ""
+  #  password: ""
+  #  mailbox: ""
+  # enable debug messages for imap package?
+  #  debug: no
+  # delete emails from server after fetch?
+  #  delete: no
+
+output:
+  # output file
+  # should be: string, golang template string or "stdout"
+  file: "./report_attached_file_converted/{{ .ID }}.html"
+  # file: "/tmp/html/{{ .ReportMetadata.Email }}/{{ .PolicyPublished.Domain }}!{{.ReportMetadata.DateRange.Begin}}!{{ .ReportMetadata.ReportID }}.html"
+
+  # output format
+  # should be: txt, json, html_static, html, external_template
+  format: "html_static"
+
+  # if you configure format to "html" output, don't forget to configure assets_path and your web server
+  # assets_path: "./assets"
+
+  # if you configure format to "external_output", don't forget to configure external_template
+  external_template: "/path/to/your/txt.gotmpl"
+
+# perform reverse lookups?
+lookup_addr: no
+
+# merge multiple similar reports to one?
+merge_reports: no
+
+log_debug: no
+log_datetime: no
